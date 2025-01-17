@@ -1,10 +1,60 @@
 import logo from './platzi.webp';
 import './App.css';
+import React from 'react';
+import { TodoItem } from './TodoItem';
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
+import { TodoList} from './TodoList';
+import { CreateTodoButton } from './CreateTodoButton';
+
+const arrayToDoList =[
+  {
+    text: "Pagar el arriendo",
+    completed: false
+  },
+  {
+    text: "Pagar los servicios ",
+    completed: false
+  },
+  {
+    text: "Comprar el Alimento para los animales ",
+    completed: false
+  },
+  {
+    text: "Estudiar para luego poder ganar mucha plata",
+    completed: false
+  },
+  {
+    text: "Hacer el inmobrable",
+    completed: false
+  }
+];
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
+    <React.Fragment>
+
+      <TodoCounter completed={16} total={arrayToDoList.length}/>
+      {/* <TodoCounter completed={3} total={5}/>
+      <TodoCounter completed={1} total={8}/> */}
+
+
+      <TodoSearch/>
+      <TodoList>
+        {arrayToDoList.map(todo => (
+          <TodoItem 
+            key={todo.text} 
+            text={todo.text} 
+            completed={todo.completed}/>
+        ))}
+      </TodoList>
+
+      <CreateTodoButton/>
+
+
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edita el archivo <code>src/App.js</code> y guarda para recargar.
@@ -17,8 +67,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-    </div>
+      </header> */}
+
+
+    </React.Fragment>
   );
 }
 
