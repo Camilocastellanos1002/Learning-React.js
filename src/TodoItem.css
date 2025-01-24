@@ -1,0 +1,38 @@
+#li{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-around;
+    align-items: center;
+    border-style: solid;
+    border-radius: 2rem;
+    border-color: white;
+    background-color: #0025fa;
+    margin: 0.2rem;
+    gap: 1.2rem;
+}
+#item_content{
+    color: white;
+    font-size: 1.2rem;
+}
+#item_close{
+    display: grid;
+    justify-content:end;
+}
+#chulo_item svg:hover{
+    transform: scale(1.5);
+    display: grid;
+    fill: #15ff00;
+}
+#item_close svg:hover{
+    transform: scale(1.5);
+    display: grid;
+    fill: #ff0000; 
+}
+
+#chulo_item--active svg{
+    fill: #15ff00;
+
+}
+#item_close-complete{
+    background-color: #ff0000;
+}

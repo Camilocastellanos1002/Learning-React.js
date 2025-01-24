@@ -1,6 +1,6 @@
 import logo from './platzi.webp';
 import './App.css';
-import React from 'react';
+// import React from 'react';
 import { TodoItem } from './TodoItem';
 import { TodoCounter } from './TodoCounter';
 import { TodoSearch } from './TodoSearch';
@@ -10,7 +10,7 @@ import { CreateTodoButton } from './CreateTodoButton';
 const arrayToDoList =[
   {
     text: "Pagar el arriendo",
-    completed: false
+    completed: true
   },
   {
     text: "Pagar los servicios ",
@@ -22,7 +22,7 @@ const arrayToDoList =[
   },
   {
     text: "Estudiar para luego poder ganar mucha plata",
-    completed: false
+    completed: true
   },
   {
     text: "Hacer el inmobrable",
@@ -33,9 +33,10 @@ const arrayToDoList =[
 
 function App() {
   return (
-    <React.Fragment>
+    <>
+    {/* <React.Fragment> */}
 
-      <TodoCounter completed={16} total={arrayToDoList.length}/>
+      <TodoCounter completed={16} total={arrayToDoList.length} id="TodoCounter"/>
       {/* <TodoCounter completed={3} total={5}/>
       <TodoCounter completed={1} total={8}/> */}
 
@@ -70,7 +71,8 @@ function App() {
       </header> */}
 
 
-    </React.Fragment>
+    {/* </React.Fragment> */}
+    </>
   );
 }
 

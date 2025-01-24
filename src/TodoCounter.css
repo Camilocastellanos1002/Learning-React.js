@@ -1,0 +1,23 @@
+#TodoCounter_title{
+    display: grid;
+    justify-content:center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+    margin-right: 60rem;
+    margin-left: 10rem;
+    bottom: 200px; /* Distancia desde la parte inferior */
+    right: 1400px;  /* Distancia desde la parte derecha */
+}
+#TodoCounter_message{
+    justify-content:left;
+    align-items: center;
+    color: white;
+    margin-left: 20rem;
+
+}
+#TodoCounter_message span{
+    font-weight: bold;
+    color: rgb(41, 39, 165);
+    font-size: 2rem;
+}

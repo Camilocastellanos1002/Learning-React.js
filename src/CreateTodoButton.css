@@ -1,0 +1,39 @@
+#button{
+    display: grid;
+    justify-content: center;
+    align-items:center;
+    position: fixed;
+    padding: 10px 20px;
+    margin-top: 15rem;
+    margin-left: 15rem;
+    background-color: #0025fa; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none;
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    
+}
+      
+#button:hover {
+    background-color: #ffffff; /* Cambio de color al pasar el mouse */
+    color: #0025fa;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    #button:hover{
+
+      animation: button-spin infinite 5s linear;
+    }
+  }
+  
+  @keyframes button-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

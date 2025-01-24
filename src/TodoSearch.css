@@ -1,0 +1,13 @@
+#search{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60rem;
+    margin-left: 10rem;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    border-style: none;
+}
+#search:focus{
+    outline-color: #61DAFA;
+}
