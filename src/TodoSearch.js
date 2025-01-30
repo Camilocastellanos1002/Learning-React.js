@@ -1,23 +1,22 @@
 import React from 'react';
-
 import './TodoSearch.css'
 
-function TodoSearch(){
-    const [searchValue, setsearchValue] = React.useState('');
-    console.log('Los usuarios buscan ToDos de '+searchValue);
+function TodoSearch(
+    //forma de descructurar las props
+    {
+        searchValue,
+        setSearchValue
+    }
+){
+
     return(
         <>
             <input id='search' 
-                placeholder="Ingresa nombre de tarea a buscar: " 
+                placeholder=    "Ingresar tarea para buscar: " 
                 value={searchValue}
-                onChange={(eve)=>{
-                    {/*console.log('estas buscando algo');
-                    console.log(eve);
-                    console.log(eve.target);
-                    console.log(eve.target.value);*/}
-                    setsearchValue(eve.target.value);
+                onChange={(event) => {
+                    setSearchValue(event.target.value);
                 }}
-                
             />
             
         </>
@@ -26,3 +25,7 @@ function TodoSearch(){
 }
 
 export { TodoSearch}; 
+{/*console.log('estas buscando algo');
+            console.log(eve);
+            console.log(eve.target);
+            console.log(eve.target.value);*/}

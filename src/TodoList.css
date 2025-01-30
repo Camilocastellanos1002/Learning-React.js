@@ -3,3 +3,6 @@
     justify-content:right;
     margin-right: 20rem;
 }
+#ul[children-completed="true"] .children.text{
+    text-decoration: line-through;
+}
