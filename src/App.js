@@ -60,6 +60,20 @@ function App() {
     }
   );
 
+  const completeTodo =(
+    (text) =>{  //se tiene en cuenta que en el todoItem, el key es generado por el texto del ToDo
+                //Se debe tener en cuenta que esta funcion necesita un texto de ingreso para poder realizar la operacion
+      const newTodos = [...todos] //se crea una copia del arraylist
+      const todoIndex = newTodos.findIndex( //se busca el ToDo por medio del index
+        (todo)=>{
+          todo.text === text
+        }
+      );
+      newTodos[todoIndex].completed = true;
+      setTodos(newTodos);
+    }
+  )
+
 
   return (
     //forma de recrear un solo objeto HTML para retornar
@@ -83,7 +97,12 @@ function App() {
           <TodoItem 
             key={todo.text} 
             text={todo.text} 
-            completed={todo.completed}/>
+            completed={todo.completed}
+            // onCompleted={completeTodo} //forma de utilizar una funcion en un evento
+            onComplete={
+              () => completeTodo(todo.text) //forma en que react genere el evento sin esperar una funcion ya ejecutada
+            }
+          />
         ))}
       </TodoList>
 
