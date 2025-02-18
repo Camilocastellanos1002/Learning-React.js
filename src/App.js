@@ -60,19 +60,47 @@ function App() {
     }
   );
 
-  const completeTodo =(
-    (text) =>{  //se tiene en cuenta que en el todoItem, el key es generado por el texto del ToDo
+  const completeTodo =
+    (text) => {  //se tiene en cuenta que en el todoItem, el key es generado por el texto del ToDo
                 //Se debe tener en cuenta que esta funcion necesita un texto de ingreso para poder realizar la operacion
+
+      console.log("Texto buscado:", text); // Verifica el texto que estás buscando
+      console.log("Todos:", todos); // Verifica el contenido de `todos`
+
+
       const newTodos = [...todos] //se crea una copia del arraylist
+      // console.log(newTodos);
+      
+      
       const todoIndex = newTodos.findIndex( //se busca el ToDo por medio del index
-        (todo)=>{
-          todo.text === text
-        }
+        (todo)  => {
+          console.log("Texto del toDo:", todo.text); // Verifica cada texto en `todos`
+          return todo.text ==  text         
+          
+        } 
       );
-      newTodos[todoIndex].completed = true;
+      console.log("Índice encontrado:", todoIndex); // Verifica el índice encontrado
+
+      if (todoIndex !== -1) {
+          newTodos[todoIndex].completed = true;
+          setTodos(newTodos);
+      } else {
+          console.error("Todo no encontrado");
+      }
+  };
+
+  const deleteTodo =
+    (text) => { 
+      const newTodos = [...todos];
+      const todoIndex = newTodos.findIndex( 
+        (todo)  => {
+          return todo.text ==  text         
+        } 
+      );
+      newTodos.splice(todoIndex,1); //metodo de arrays que permite eliminar desde la posicion index, 1 elemento despues de este
       setTodos(newTodos);
-    }
-  )
+  };
+  
 
 
   return (
@@ -99,8 +127,13 @@ function App() {
             text={todo.text} 
             completed={todo.completed}
             // onCompleted={completeTodo} //forma de utilizar una funcion en un evento
+            // onCompleted={completeTodo.text} //TODO CRASHEAAA por que los eventos en react
+
             onComplete={
               () => completeTodo(todo.text) //forma en que react genere el evento sin esperar una funcion ya ejecutada
+            }
+            onDelete={
+              () => deleteTodo(todo.text)
             }
           />
         ))}

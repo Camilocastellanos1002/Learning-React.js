@@ -1,4 +1,4 @@
-#li{
+.li{
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-around;
@@ -10,29 +10,11 @@
     margin: 0.2rem;
     gap: 1.2rem;
 }
-#item_content{
+.li-p{
     color: white;
     font-size: 1.2rem;
 }
-#item_close{
-    display: grid;
-    justify-content:end;
-}
-#chulo_item svg:hover{
-    transform: scale(1.5);
-    display: grid;
-    fill: #15ff00;
-}
-#item_close svg:hover{
-    transform: scale(1.5);
-    display: grid;
-    fill: #ff0000; 
-}
 
-#chulo_item--active svg{
-    fill: #15ff00;
-
-}
-#item_close-complete{
-    background-color: #ff0000;
+.TodoItem-p--complete {
+    text-decoration: line-through;
 }

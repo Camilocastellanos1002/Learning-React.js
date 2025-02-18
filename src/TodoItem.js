@@ -1,19 +1,33 @@
-
+import { CompleteIcon } from './CompleteIcon'
+import { DeleteIcon } from './DeleteIcon'
 import './TodoItem.css'
+
+
 function TodoItem(props){
     return (
-      <li id='li'>
+      <li className='li'>
         <>
-        <span id={`chulo_item ${props.completed && "chulo_item--active"}`}
-          onClick={props.onComplete}
-        >
-          <svg  xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>
-        </span>
-        <p id={`item_content ${props.completed && "item_content-complete"}`}>{props.text}</p>
+        <CompleteIcon 
+          completed = {props.completed}
+          onComplete={props.onComplete}
+          />
+
+        {/* <span className={`Icon Icon-check  ${props.completed && "Icon-check--active"}`}
+          onClick={props.onComplete}>
+          
+        </span> */}
+
+        <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
+          {props.text}</p>
         </>
-        <span id={`item_close ${props.completed && "item_close-complete"}`}>
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
-        </span>
+
+        <DeleteIcon 
+          onDelete={props.onDelete}
+        />
+
+        {/* <span className={`Icon Icon-delete`}
+        </span> */}
+
       </li>
     );
 }
