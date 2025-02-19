@@ -35,7 +35,15 @@ function App() {
 
   //forma de que toDo's sean un estado, y se ingresara el array como valor por defecto
   // const [todos,setTodos] = React.useState(parsedTodos);
-  const [todos,saveTodos] = useLocalStorage('ToDos',[]);
+    //const [todos,saveTodos] = useLocalStorage('ToDos',[]);
+  
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error
+  } = useLocalStorage('ToDos',[]);
+
 
 
   // forma de generar un estado, cuyo valor inicial seran los valores agregados en el localstorage
@@ -48,6 +56,11 @@ function App() {
     todo => !!todo.completed 
   ).length;
   const totalToDos = todos.length;
+
+  //forma de encapsular codigo y estar condicionado al cambio de un estado
+  React.useEffect(()=>{
+    console.log(`el total de tareas son: ${totalToDos}`);
+  },[totalToDos]);
   //estado que filtrara si coincida el valor ingresado en el input con alguna tarea por hacer
   const searchedToDos = todos.filter(
     toDo => {
@@ -103,6 +116,8 @@ function App() {
 
   return (
     <AppUI
+      loading={loading}
+      error={error}
       completedToDos={completedToDos}
       totalToDos={totalToDos}
       searchValue={searchValue}
