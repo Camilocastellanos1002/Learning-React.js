@@ -1,14 +1,9 @@
-import logo from './platzi.webp';
-import './App.css';
 import React from 'react';
-import { TodoItem } from './TodoItem';
-import { TodoCounter } from './TodoCounter';
-import { TodoSearch } from './TodoSearch';
-import { TodoList} from './TodoList';
-import { CreateTodoButton } from './CreateTodoButton';
+import { AppUI } from './AppUI';
+import { useLocalStorage } from './useLocalStorage';
 
 //crear una lista de objetos
-const arrayToDoList =[
+/* const arrayToDoList =[
   {
     text: "Pagar el arriendo",
     completed: true
@@ -33,18 +28,21 @@ const arrayToDoList =[
     text: "Dormir como bebé",
     completed: false
   }
-];
-
+]; 
+localStorage.setItem('ToDos', JSON.stringify(arrayToDoList));*/
 
 function App() {
 
-  // forma de generar un estado
+  //forma de que toDo's sean un estado, y se ingresara el array como valor por defecto
+  // const [todos,setTodos] = React.useState(parsedTodos);
+  const [todos,saveTodos] = useLocalStorage('ToDos',[]);
+
+
+  // forma de generar un estado, cuyo valor inicial seran los valores agregados en el localstorage
   const [searchValue, setSearchValue] = React.useState('');
   console.log('Los usuarios buscan ToDos de '+ searchValue);
 
-  //forma de que toDo's sean un estado, y se ingresara el array como valor por defecto
-  const [todos,setTodos] = React.useState(arrayToDoList);
-
+ 
   //se genera filtrado de estados completados por medio de filter 
   const completedToDos = todos.filter(
     todo => !!todo.completed 
@@ -75,7 +73,7 @@ function App() {
       const todoIndex = newTodos.findIndex( //se busca el ToDo por medio del index
         (todo)  => {
           console.log("Texto del toDo:", todo.text); // Verifica cada texto en `todos`
-          return todo.text ==  text         
+          return todo.text ===  text         
           
         } 
       );
@@ -83,7 +81,7 @@ function App() {
 
       if (todoIndex !== -1) {
           newTodos[todoIndex].completed = true;
-          setTodos(newTodos);
+          saveTodos(newTodos);
       } else {
           console.error("Todo no encontrado");
       }
@@ -94,73 +92,25 @@ function App() {
       const newTodos = [...todos];
       const todoIndex = newTodos.findIndex( 
         (todo)  => {
-          return todo.text ==  text         
+          return todo.text ===  text         
         } 
       );
       newTodos.splice(todoIndex,1); //metodo de arrays que permite eliminar desde la posicion index, 1 elemento despues de este
-      setTodos(newTodos);
+      saveTodos(newTodos);
   };
   
 
 
   return (
-    //forma de recrear un solo objeto HTML para retornar
-    <>
-    {/* <React.Fragment> */}
-
-      <TodoCounter completed={completedToDos} total={totalToDos} id="TodoCounter"/>
-      {/* <TodoCounter completed={3} total={5}/>
-      <TodoCounter completed={1} total={8}/> */}
-
-
-      <TodoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-      
-      {/* antes de crear los estados se tenia lo siguiente: 
-           {arrayToDoList.map(todo => ( */}
-      <TodoList>
-        {searchedToDos.map(todo => (
-          <TodoItem 
-            key={todo.text} 
-            text={todo.text} 
-            completed={todo.completed}
-            // onCompleted={completeTodo} //forma de utilizar una funcion en un evento
-            // onCompleted={completeTodo.text} //TODO CRASHEAAA por que los eventos en react
-
-            onComplete={
-              () => completeTodo(todo.text) //forma en que react genere el evento sin esperar una funcion ya ejecutada
-            }
-            onDelete={
-              () => deleteTodo(todo.text)
-            }
-          />
-        ))}
-      </TodoList>
-
-      <CreateTodoButton/>
-
-
-
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edita el archivo <code>src/App.js</code> y guarda para recargar.
-        </p>
-        <a
-          className="App-link"
-          href="https://platzi.com/reactjs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-
-
-    {/* </React.Fragment> */}
-    </>
+    <AppUI
+      completedToDos={completedToDos}
+      totalToDos={totalToDos}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedToDos={searchedToDos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
+    />
   );
 }
 

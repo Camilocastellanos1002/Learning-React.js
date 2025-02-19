@@ -18,14 +18,14 @@ function TodoSearch(
                     setSearchValue(event.target.value);
                 }}
             />
+            {/*console.log('estas buscando algo');
+                        console.log(eve);
+                        console.log(eve.target);
+                        console.log(eve.target.value);*/}
             
         </>
     );
-  
 }
 
 export { TodoSearch}; 
-{/*console.log('estas buscando algo');
-            console.log(eve);
-            console.log(eve.target);
-            console.log(eve.target.value);*/}
+
