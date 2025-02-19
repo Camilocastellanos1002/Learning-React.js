@@ -1,6 +1,6 @@
 # Proyecto "To Do's"
 
-Este proyecto tiene como objetivo reaalizar una aplicacion web de generar un buscador de Tareas que consiste en completar, eliminar, buscar y agregar tareas en una lista, esto se realiza mediante la implementacion de React.js y aplicando los conceptos basicos aprendidos en el curso de platzi como lo son la creacion, manipulacion herencia y demas sobre:
+Este proyecto tiene como objetivo reaalizar una aplicacion web de "Tareas" que consiste en completar, eliminar, buscar y agregar to Do's en una lista, esto se realiza mediante la implementacion de React.js y aplicando los conceptos basicos aprendidos en el curso de platzi como lo son la creacion, manipulacion herencia y demas sobre:
   * Componentes
   * Estados
   * Implementacion
