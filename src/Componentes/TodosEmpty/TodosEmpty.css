@@ -1,0 +1,10 @@
+.empty-message{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.empty-message p{
+    font-size: 3rem;
+}

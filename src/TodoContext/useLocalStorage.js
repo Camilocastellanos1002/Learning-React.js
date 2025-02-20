@@ -65,3 +65,34 @@ function useLocalStorage(itemName, initialValue){
 }
 
 export {useLocalStorage};   
+
+
+
+//crear una lista de objetos
+/* const arrayToDoList =[
+  {
+    text: "Pagar el arriendo",
+    completed: true
+  },
+  {
+    text: "Pagar los servicios ",
+    completed: false
+  },
+  {
+    text: "Comprar el Alimento para los animales ",
+    completed: false
+  },
+  {
+    text: "Estudiar para luego poder ganar mucha plata",
+    completed: true
+  },
+  {
+    text: "Hacer el inmobrable",
+    completed: false
+  },
+  {
+    text: "Dormir como bebé",
+    completed: false
+  }
+]; 
+localStorage.setItem('ToDos', JSON.stringify(arrayToDoList));*/
