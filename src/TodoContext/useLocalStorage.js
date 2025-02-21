@@ -95,4 +95,6 @@ export {useLocalStorage};
     completed: false
   }
 ]; 
-localStorage.setItem('ToDos', JSON.stringify(arrayToDoList));*/
+localStorage.setItem('ToDos', JSON.stringify(arrayToDoList));
+
+*/

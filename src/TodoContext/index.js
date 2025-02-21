@@ -27,7 +27,10 @@ function  TodoProvider( {children}){
 
   // forma de generar un estado, cuyo valor inicial seran los valores agregados en el localstorage
   const [searchValue, setSearchValue] = React.useState('');
-//   console.log('Los usuarios buscan ToDos de '+ searchValue);
+  //   console.log('Los usuarios buscan ToDos de '+ searchValue);
+
+  //creacion del estado para manejo del modal
+  const [openModal, setOpenModal] = React.useState(false); //estado del modal cerrado por defecto
 
  
   //se genera filtrado de estados completados por medio de filter 
@@ -91,6 +94,19 @@ function  TodoProvider( {children}){
       saveTodos(newTodos);
   };
 
+  const addTodo = 
+    (text)=>{
+      console.log("Nueva tarea para agregar:", text); //nueva tarea
+      console.log("Todos:", todos); // Verifica el contenido de `todos`
+
+      const newTodos = [...todos] //se crea una copia del arraylist
+      newTodos.push({ //agregar la nueva tarea al array
+        text: text,
+        completed: false
+      });
+      saveTodos(newTodos);
+  }
+
     return(
         /* Se exporta y encapsula la informacion o props deseadas al componente que los requiera enviandola por por medio de la propiedad value,
             por medio de un objeto con la informacion */
@@ -104,7 +120,10 @@ function  TodoProvider( {children}){
                 setSearchValue,
                 searchedToDos,
                 completeTodo,
-                deleteTodo
+                deleteTodo,
+                openModal,
+                setOpenModal,
+                addTodo
             }}>
             {children}  {/* el componente dentro del componente TodoContext, heredara los valores por medio de las props functions */}
         </TodoContext.Provider>

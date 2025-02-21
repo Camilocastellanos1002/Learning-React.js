@@ -1,13 +1,18 @@
 import React from 'react';
 import './TodoSearch.css'
+import { TodoContext } from '../../TodoContext';
 
 function TodoSearch(
-    //forma de descructurar las props
+    /*forma de descructurar las props
     {
         searchValue,
         setSearchValue
-    }
+    }*/
 ){
+    const {
+        searchValue,
+        setSearchValue,
+      } = React.useContext(TodoContext);
 
     return(
         <>

@@ -1,0 +1,13 @@
+.Modal-container{
+    background-color: rgb(41, 39, 165);
+    opacity: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
